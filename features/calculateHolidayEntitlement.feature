@@ -20,8 +20,6 @@ Scenario: Calculate the correct holiday entitlement for an employee who works ir
 
 Scenario: Displays the values that were inputted by the user on the summary page
 
-Scenario: Displays validation when the user does not select a mandatory field
+Scenario: Displays error when the user does not select a mandatory field
 
 Scenario: Updates calculation when value is edited
-
-Scenario: Ensure that 'related content' links all navigate to correct pages
