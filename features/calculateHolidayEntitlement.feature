@@ -1,3 +1,4 @@
+
 Feature: Calculate holiday entitlement
 
 # Scenario: Homepage is visible
@@ -42,7 +43,4 @@ Scenario: Calculate the correct holiday entitlement for an employee who works re
 #     And I input 5 days worked per week
 #     Then I should see the correct submitted answers for regular hours
 #     And I should see 224 total entitlement hours
-
-
-
 
