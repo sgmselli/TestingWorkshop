@@ -1,6 +1,3 @@
-
-
-
 #############    SCENERIO 1     #############   
 
 
@@ -108,3 +105,39 @@ end
 
 #############    SCENERIO 4     #############
 
+
+When ('I click the number of hours per week change button') do
+    within('div.gem-c-summary-list') do
+        link = all('a.govuk-link')[3]
+        link.click
+        expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year?previous_response=37.5'     
+    end
+end
+
+And ('I input 40 hours worked per week changed') do
+    fill_in 'response', with: '40'
+    click_button('Continue')
+    expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year/40.0'
+
+    sleep 3
+end
+
+And ('I input 5 days worked per week changed') do
+    fill_in 'response', with: '5'
+    click_button('Continue')   
+    expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year/40.0/5.0'
+    sleep 3
+
+end
+
+And ('I should see the correct submitted answers for regular hours changed') do
+    within('div.gem-c-summary-list') do
+        expect(page).to have_css('dd.govuk-summary-list__value', text: '40')
+    end
+    sleep 3
+
+end
+
+And ('I should see 224 total entitlement hours changed') do
+    expect(page).to have_content 'The statutory entitlement is 224 hours holiday.'
+end
