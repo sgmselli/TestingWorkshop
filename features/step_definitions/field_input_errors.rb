@@ -136,3 +136,9 @@ Then('I should see an incorrect shift length error message') do
     end
 end
 
+And('I input 0.4 hours worked per week') do
+    expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year'
+    fill_in 'response', with: '0.4'
+    click_button('Continue')
+    expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year?response=0&next=1'
+end
