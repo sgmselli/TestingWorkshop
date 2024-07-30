@@ -62,6 +62,16 @@ Scenario: Shows an error message when a user inputs more than 24 hours in a shif
     And I select the option for a full leave year for shift work
     And I input 25 hours for the shifts
     Then I should see an incorrect shift length error message
+
+Scenario: Shows an error message when a user inputs less than 0.5 hours
+    Given I navigate to the homepage
+    And I should see the homepage
+    When I click on the 'Start now' button
+    And I select the option no for working irregular hours
+    And I select the option hours worked per week
+    And I select the option for a full leave year
+    And I input 0.4 hours worked per week
+    Then I should see a less than 0.5 error message
     
 
   
