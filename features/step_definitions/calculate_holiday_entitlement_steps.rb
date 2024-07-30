@@ -118,15 +118,13 @@ And ('I input 40 hours worked per week changed') do
     fill_in 'response', with: '40'
     click_button('Continue')
     expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year/40.0'
-
-    sleep 3
 end
 
 And ('I input 5 days worked per week changed') do
     fill_in 'response', with: '5'
     click_button('Continue')   
     expect(page).to have_current_path 'https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/hours-worked-per-week/full-year/40.0/5.0'
-    sleep 3
+   
 
 end
 
@@ -135,7 +133,6 @@ And ('I should see the correct submitted answers for regular hours changed') do
         expect(page).to have_css('dd.govuk-summary-list__value', text: '40')
     end
     sleep 3
-
 end
 
 And ('I should see 224 total entitlement hours changed') do
